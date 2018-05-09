@@ -1,1 +1,1 @@
-# scorecard
+# disc-golf-scorecard

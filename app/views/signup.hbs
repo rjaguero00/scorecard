@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+		<title>Log In</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+	</head>
+  <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>                        
+              </button>
+              <a class="navbar-brand" href="#">disc-golf-scorecard</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+              <ul class="nav navbar-nav navbar-right">
+                  <li><a href="signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                  <li><a href="signin"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+              </ul>
+          </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="user-sign-up" align="center">
+            <h2>Sign Up</h2>
+            <form id="signup" name="signup" method="post" action="/signup">
+              <label for="email">Email Address</label>
+              <br>
+              <input name="email" type="email" class="box" placeholder="Email"/>
+              <br>
+              <label for="firstname">Firstname</label>
+              <br>
+              <input name="firstname" type="text" class="box" placeholder="First Name"/>
+              <br>
+              <label for="lastname">Lastname</label>
+              <br>
+              <input name="lastname" type="text" class="box" placeholder="Last Name" />
+              <br>
+              <label for="password">Password</label>
+              <br>
+              <input name="password" type="password" class="box" placeholder="Password"/>
+              <br>
+              <input class="btn btn-primary" id="sign-in" type="submit" value="Sign Up" />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="footer"><h5>&copy Copyright disc-golf-scorecard 2018</h5></div>
+    </footer>
+  </body>
+</html>

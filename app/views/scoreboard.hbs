@@ -1,0 +1,147 @@
+<head>
+    <title>Disc Golf Scorecard</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/dash.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Scorecard</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="logout">
+                            <span class="glyphicon glyphicon-log-out"></span> Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+
+        <!--Scoreboard Table Section-->
+        <div class="row">
+            <div class="col-xs-12" align="center">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <p>Scorecard</stro>
+                    </h3>
+                </div>
+                    <div class="table-responsive">
+                    <table class="table table-hover table-dark" id='player-table'>
+                        <thead>
+                            <tr>
+<!--========== EDIT HANDLEBARS DATA WITH REAL BACKEND VARIABLES ==================
+                                <th></th>
+                                <th>Par</th>
+                                {{#each user}}
+                                <th>{{firstname}}</th>
+                                 {{/each}}
+                            </tr>
+                            {{#each hole}}
+                        </thead>
+                            <tr>
+                                <td>{{this.hole}}</td>
+                                <td>{{this.set-par}}</td>
+                                {{#each user}}
+                                <td>{{this.user-par}}</td>
+                                {{/each}}
+                            </tr>          
+                            {{/each}}
+                            <tr class="totals">
+                                <td></td>
+                                <td>{{par-total}}</td>
+                                {{#each user}}
+                                <td>{{sum-score}}</td>
+                                {{/each}}
+                            </tr>
+========================END OF REAL TABLE WITH HANDLEBARS======================================-->
+
+<!--=================================SAMPLE TABLE INPUT========================================-->
+                            <tr>
+                                <th>#</th>
+                                <th>Par</th>
+                                <th>Evelyn</th>
+                                <th>Robert</th>
+                                <th>Stefanie</th>
+                                <th>Gilberto</th>
+                            </tr>
+                        </thead>
+                        </tbody>
+                            {{!-- {{#each hole}} --}}
+                            <tr>
+                                <td>{{this.hole}}1</td>
+                                <td>{{this.set-par}}3</td>
+                                {{!-- {{#each user}} --}}
+                                <td>{{this.user-par}}2</td>
+                                <td>4</td>
+                                <td>3</td>
+                                <td>3</td>
+                                {{!-- {{/each}} --}}
+                            </tr>
+                            {{!-- {{/each}} --}}
+
+                            <tr>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>2</td>
+                                <td>4</td>
+                                <td>5</td>
+                                <td>2</td>
+                            </tr>
+                            <tr class="totals">
+                                <td></td>
+                                <td>{{par-total}}6</td>
+                                {{!-- {{#each user}} --}}
+                                <td>{{sum-score}}4</td>
+                                <td>8</td>
+                                <td>8</td>
+                                <td>5</td>
+                                {{!-- {{/each}} --}}
+                            </tr>
+<!--===========================================================================================-->
+                        </tbody>
+                    </table>
+                    </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+<script type="text/javascript">
+
+var colors=["","","#636e72","#a29bfe","#fab1a0","#00b894","#81ecec","#ffeaa7","#55efc4","#74b9ff","#fdcb6e","#00cec9","#e84393"];
+var div = document.getElementById("player-table")
+var header = div.getElementsByTagName("th");
+
+for (var i=0; i < header.length; i++){
+ header[i].style.backgroundColor = colors[i];
+}
+
+
+
+
+
+
+</script>
+</body>
+
+</html>

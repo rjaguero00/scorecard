@@ -1,43 +1,39 @@
-module.exports = function (sequelize, Sequelize) {
+module.exports = function (sequelize, DataTypes) {
 
     var User = sequelize.define('user', {
         id: {
-            autoIncrement: true, primaryKey: true, type: Sequelize.INTEGER
+            autoIncrement: true, primaryKey: true, type: DataTypes.INTEGER
         },
         firstname: {
-            type: Sequelize.STRING, notEmpty: true
+            type: DataTypes.STRING, notEmpty: true
         },
         lastname: {
-            type: Sequelize.STRING, notEmpty: true
+            type: DataTypes.STRING, notEmpty: true
         },
         username: {
-            type: Sequelize.TEXT
+            type: DataTypes.TEXT
         },
         about: {
-            type: Sequelize.TEXT
+            type: DataTypes.TEXT
         },
         email: {
-            type: Sequelize.STRING, validate: { isEmail: true }
+            type: DataTypes.STRING, validate: { isEmail: true }
         },
         password: {
-            type: Sequelize.STRING, allowNull: false
+            type: DataTypes.STRING, allowNull: false
         },
         last_login: {
-            type: Sequelize.DATE
+            type: DataTypes.DATE
         },
         status: {
-            type: Sequelize.ENUM('active', 'inactive'), defaultValue: 'active'
+            type: DataTypes.ENUM('active', 'inactive'), defaultValue: 'active'
         }
-    }
-        , {
-            classMethods: {
-                associate: function (models) {
-                    User.hasMany(models.Game, { as: 'GamesPlayed' });
-                    User.hasMany(models.HoleScore, { as: 'HoleScores' });
-                }
-            }
-        }
-    );
+    });
+    User.associate = function(models) {
+        User.belongsToMany(models.Game, {
+          through: 'UserGame'
+        });
+    };
 
     return User;
 

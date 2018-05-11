@@ -13,7 +13,10 @@ module.exports = function(app,passport){
     app.get('/join', function (req, res) {
         res.render("join-game");
     });
-
+    
+    app.get("/scoreboard", function (req, res) {
+        res.render("scoreboard");
+    });
 
     app.get('/signup', authController.signup);
 

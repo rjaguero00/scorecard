@@ -24,7 +24,7 @@
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
               <ul class="nav navbar-nav navbar-right">
-                  <li><a href="#">End Game</a></li>
+                  <li><a href="scoreboard">End Game</a></li>
                   <li><a href="logout">Log Out</a></li>
               </ul>
           </div>
@@ -41,11 +41,28 @@
                     <br>
                     <h3><span id="previous">< Prev</span><span id="next">Next ></span></h3>
                     <br>
-                    <span id="progress"></span>
+                    <h2><span id="progress"></span></h2>
                 </div>
             </div>
         </div>
     </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title" id="exampleModalLabel">Warning</h1>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" align="center" id="display">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="close-modal">Close</button>
+                </div>
+                </div>
+            </div>
+        </div>
     <footer>
       <div class="footer"><h5>&copy Copyright disc-golf-scorecard 2018</h5></div>
     </footer>
@@ -64,7 +81,8 @@
             $("#minus").on("click",function(){
                 number--;
                 if (number === 0){
-                    alert("Cannot go lower than zero");
+                    $("#display").text("This value cannot be set lower than zero.");
+                    $("#myModal").modal("show");
                     number = 3;
                 }
                 $("#number").text(number);
@@ -72,22 +90,35 @@
             $("#plus").on("click",function(){
                 number++;
                 $("#number").text(number);
+                
             });
             $("#next").on("click",function(){
+                var currentHole = $("#hole-number").text()
+                var user = $("#number").text();
+                var userPar = parseInt(user);
+                console.log(userPar);
+                if (userPar === 3){
+                    $("#progress").text("E")
+                }
+                else if (userPar > 3){
+                    $("#progress").text("Hole " + currentHole + ": + " + (userPar - 3));
+                }
+                else if (userPar < 3){
+                    $("#progress").text("Hole " + currentHole + ": - " + (3 - userPar));
+                }
+                
                 hole++;
                 $("#hole-number").text(hole);
             });
             $("#previous").on("click",function(){
                 hole--;
                 if (hole === 0){
-                    alert("Cannot go lower than zero");
+                    $("#display").text("This value cannot be set lower than zero.");
+                    $("#myModal").modal("show");
                     hole = 1;
                 }
                 $("#hole-number").text(hole);
             });
-            
-            
-            
         });
     </script>
   </body>

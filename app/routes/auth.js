@@ -3,6 +3,10 @@ var model = require('../models');
 
 module.exports = function (app, passport) {
 
+    app.post('/api/game', function(req, res){
+        res.redirect('/game');
+    });
+
     app.get('/game', function (req, res) {
         res.render("game");
     });

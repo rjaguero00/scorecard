@@ -100,7 +100,7 @@ a {
     transition: box-shadow 0.5s ease-in-out;
     opacity: 0.8;
 }
-.user-sign-up{
+.user-sign-up:hover{
     background-color: black; 
     transition: background-color 0.5s ease-in-out;
     box-shadow: 0 0 40px black;

@@ -24,5 +24,13 @@ module.exports = {
                 GameId: data.id
             })
         });
+    },
+    createHoleScore: function (req, res) {
+        console.log(req.body);
+        var holeScoreId = req.body.holeScoreId
+        var holeScore = req.body.holeScore;
+        model.Hole.create({
+            id:
+        })
     }
 }

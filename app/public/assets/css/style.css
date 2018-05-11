@@ -70,6 +70,9 @@ input {
     border-radius: 50px;
     color: #fff;
 }
+#close-modal {
+    width: 25%;
+}
 .footer {
 	position: fixed;
 	bottom: 0px;

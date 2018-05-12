@@ -8,7 +8,6 @@ module.exports = {
         }).then(function (data) {
             res.json(data);
         })
-
     },
     createGame: function (req, res) {
         console.log(req.body);
@@ -26,17 +25,48 @@ module.exports = {
             res.redirect('/hole');
         });
     },
-    addHoles: function (req, res) {
-        console.log(req.body);
-        var currentHoleNum = req.body.currentHole;
-        var parNum = req.body.par;
-        model.Hole.create({
-            hole_number: currentHoleNum,
-            par: parNum
-        }).then(function(data) {
-            console.log(req.user);
-        });
-    }
+    // // Check to see if hole exists in db
+    // getHole: function (req, res) {
+    //     model.Hole.findOne({
+    //         where: {
+    //             id: req.params.id
+    //         }
+    //     }).then(function (data) {
+    //         res.json(data);
+    //     })
+    // },
+    // Get data from all holes with game id **
+    // getAllHoles: function (req, res) {
+    //     model.Hole.findAll({
+    //         where: {
+    //             gameId: req.params.id
+    //         }
+    //     }).then(function (data) {
+    //         res.json(data);
+    //     })
+    // },
+    // // Add hole if doesn't exist in db
+    // createHole: function (req, res) {
+    //     var currentHoleNum = req.body.currentHole;
+    //     var parNum = req.body.par;
+    //     model.Hole.create({
+    //         hole_number: currentHoleNum,
+    //         par: parNum
+    //     }).then(function(data) {
+    //         res.json(data);
+    //     });
+    // },
+    // // Update hole if numbers don't match db
+    // updateHole: function (req, res) {
+    //     var currentHoleNum = req.body.currentHole;
+    //     var parNum = req.body.par;
+    //     model.Hole.update({
+    //         hole_number: currentHoleNum,
+    //         par: parNum
+    //     }).then(function(data) {
+    //         res.json(data);
+    //     });
+    // }
     // ,
     // createHoleScore: function (req, res) {
     //     console.log(req.body);

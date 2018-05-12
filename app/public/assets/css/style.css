@@ -99,7 +99,7 @@ a {
 .user-login:hover{
     background-color: black; 
     transition: background-color 0.5s ease-in-out;
-    box-shadow: 0 0 40px black;
+    box-shadow: 0 0 40px white;
     transition: box-shadow 0.5s ease-in-out;
     opacity: 0.8;
 }
@@ -146,9 +146,4 @@ video {
 }
 .stopfade { 
 opacity: .5;
-}
-@media only screen and (max-width: 640px){ 
-    #video-section { 
-        display: none; 
-    }
 }

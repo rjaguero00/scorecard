@@ -2,10 +2,23 @@ var apiController = require('../controllers/api.js');
 
 module.exports = function (app, passport) {
 
+    // User
     app.get('/api/user/:id', isLoggedIn, apiController.getUser);
-    app.get('/api/game/:join_id', isLoggedIn, apiController.getGame);
+
+    // Game
+    app.get('/api/game/join', isLoggedIn, apiController.getGame);
     app.post('/api/game', isLoggedIn, apiController.createGame);
     app.post('/game', isLoggedIn, apiController.createHoleScore);
+
+    // Holes
+    // app.get('/api/hole/:id', isLoggedIn, apiController.getHole);
+    // app.get('/api/hole/:id', isLoggedIn, apiController.getAllHoles);
+    // app.post('/api/hole/:id', isLoggedIn, apiController.createHole);
+    // app.put('/api/hole/:id', isLoggedIn, apiController.updateHole);
+
+    // Hole Score
+    // app.post('api/scoreboard', isLoggedIn, apiController.createHoleScore);
+    // app.put('api/scoreboard', isLoggedIn, apiController.updateHoleScore);
 
     function isLoggedIn(req, res, next) {
         if (req.isAuthenticated())

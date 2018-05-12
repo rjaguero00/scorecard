@@ -110,6 +110,3 @@ getGame: function (req, res) {
          }
 
 }
-
-}
-

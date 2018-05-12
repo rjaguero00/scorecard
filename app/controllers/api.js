@@ -31,6 +31,7 @@ module.exports = {
         var holeScoreId = req.body.holeScoreId
         var holeScore = req.body.holeScore;
         model.Hole.create({
+//>>>>>>>>>>>Added this code sample code for testing<<<<<<<<<<<<<<<<<<<//
             id:1
         }).then(function(data){
            // console.log(req.user);
@@ -41,7 +42,6 @@ module.exports = {
 
 // Find Game where join_id is equal to user-input join-id
 // Then create UserGame and set userId as the current user's ID and GameId as the GameId found by user (with join_id)
-
     getGame: function (req, res) {
         model.Game.findOne({
             where: {

@@ -4,6 +4,7 @@ body{
     background-color: #333;
     box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
     color: #fff;
+    font-family: 'Poppins', sans-serif;
 }
 .btn-default{
     width: 250px;
@@ -51,4 +52,11 @@ body{
 	background-color: black;
 	color: white;
 	text-align: center
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    padding: 1px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+    text-align: center;
 }

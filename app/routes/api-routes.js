@@ -6,6 +6,7 @@ module.exports = function (app, passport) {
     app.get('/api/user/:id', isLoggedIn, apiController.getUser);
 
     // Game
+    app.get('/api/game/join', isLoggedIn, apiController.getGame);
     app.post('/api/game', isLoggedIn, apiController.createGame);
     
     // Holes

@@ -76,4 +76,40 @@ module.exports = {
     //         id:
     //     })
     // }
+
+    createHoleScore: function (req, res) {
+        console.log(req.body);
+        var holeScoreId = req.body.holeScoreId
+        var holeScore = req.body.holeScore;
+        model.Hole.create({
+//>>>>>>>>>>>Added this code sample code for testing<<<<<<<<<<<<<<<<<<<//
+            id:1
+        }).then(function(data){
+           // console.log(req.user);
+        });
+    },
+
+
+
+// Find Game where join_id is equal to user-input join-id
+// Then create UserGame and set userId as the current user's ID and GameId as the GameId found by user (with join_id)
+// EVELYN
+getGame: function (req, res) {
+        var playerID = req.user.id;
+        model.Game.findOne({            
+            where: {
+                join_id: req.query.join_id
+            }
+        }).then(function (data) {
+                model.UserGame.create({
+                    userId: playerID,
+                    GameId: data.id
+                })
+                res.redirect("/game");
+            });
+         }
+
 }
+
+}
+

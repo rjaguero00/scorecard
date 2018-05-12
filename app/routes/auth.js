@@ -3,6 +3,7 @@ var model = require('../models');
 
 module.exports = function (app, passport) {
 
+
     app.get('/hole', function (req, res) {
         res.render("game");
     });
@@ -12,7 +13,7 @@ module.exports = function (app, passport) {
     });
 
     app.get('/join', function (req, res) {
-        res.render("join-game");
+        displayUserName(req, res);
     });
 
     app.get("/scoreboard", function (req, res) {
@@ -33,6 +34,7 @@ module.exports = function (app, passport) {
 
 
     app.get('/dashboard', isLoggedIn, authController.dashboard);
+   
 
 
     app.get('/logout', authController.logout);
@@ -51,7 +53,7 @@ module.exports = function (app, passport) {
         res.redirect('/signin');
     }
     function generateRandGameId(req, res) {
-        var str = randomString(10);
+        var str = randomString(5);
         model.Game.findAll({
             where: {
                 join_id: str
@@ -78,4 +80,20 @@ module.exports = function (app, passport) {
         }
         return text;
     }
+
+    function displayUserName(req, res){
+        model.user.findOne({
+            where: {
+                id: req.user.id
+            }
+        }).then(function (data) {
+            console.log(data.dataValues.firstname);
+            return res.render("join-game", {
+                user: {
+                    firstname: data.dataValues.firstname
+                }
+            });
+        })
+    }
+
 }

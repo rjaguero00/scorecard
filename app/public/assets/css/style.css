@@ -81,6 +81,9 @@ input {
 	color: white;
 	text-align: center
 }
+label{
+    color: #00cec9;    
+}
 a {
     color: white;
 }
@@ -113,4 +116,16 @@ a {
     box-shadow: 0 0 40px black;
     transition: box-shadow 0.5s ease-in-out;
     opacity: 0.8;
+}
+.btn-default{
+    width: 250px;
+    box-shadow: 0 0 10px #000;
+    border-radius: 50px;
+    color: #fff;
+}
+#previous:hover{
+    cursor: pointer;
+}
+#next:hover{
+    cursor: pointer;
 }

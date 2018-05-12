@@ -42,21 +42,22 @@ module.exports = {
 
 // Find Game where join_id is equal to user-input join-id
 // Then create UserGame and set userId as the current user's ID and GameId as the GameId found by user (with join_id)
-    getGame: function (req, res) {
-        model.Game.findOne({
+// EVELYN
+getGame: function (req, res) {
+        var playerID = req.user.id;
+        model.Game.findOne({            
             where: {
-                join_id: req.params.join_id
+                join_id: req.query.join_id
             }
         }).then(function (data) {
-                res.json(data);
                 model.UserGame.create({
-                    userId: req.user.id,
+                    userId: playerID,
                     GameId: data.id
                 })
                 res.redirect("/game");
             });
-        },
+         }
 
-    }
+}
 
 

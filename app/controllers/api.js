@@ -22,15 +22,28 @@ module.exports = {
             model.UserGame.create({
                 userId: req.user.id,
                 GameId: data.id
-            })
+            });
+            res.redirect('/hole');
         });
     },
-    createHoleScore: function (req, res) {
+    addHoles: function (req, res) {
         console.log(req.body);
-        var holeScoreId = req.body.holeScoreId
-        var holeScore = req.body.holeScore;
+        var currentHoleNum = req.body.currentHole;
+        var parNum = req.body.par;
         model.Hole.create({
-            id:
-        })
+            hole_number: currentHoleNum,
+            par: parNum
+        }).then(function(data) {
+            console.log(req.user);
+        });
     }
+    // ,
+    // createHoleScore: function (req, res) {
+    //     console.log(req.body);
+    //     var holeScoreId = req.body.holeScoreId
+    //     var holeScore = req.body.holeScore;
+    //     model.Hole.create({
+    //         id:
+    //     })
+    // }
 }

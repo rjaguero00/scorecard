@@ -44,7 +44,6 @@ module.exports = {
 // Then create UserGame and set userId as the current user's ID and GameId as the GameId found by user (with join_id)
 // EVELYN
 getGame: function (req, res) {
-        var playerID = req.user.id;
         model.Game.findOne({            
             where: {
                 join_id: req.query.join_id

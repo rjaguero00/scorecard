@@ -4,10 +4,7 @@ var model = require('../models');
 module.exports = function (app, passport) {
 
 
-
-
-
-    app.get('/game', function (req, res) {
+    app.get('/hole', function (req, res) {
         res.render("game");
     });
 

@@ -68,60 +68,145 @@
     <footer>
       <div class="footer"><h5>&copy Copyright disc-golf-scorecard 2018</h5></div>
     </footer>
+
     <script type="text/javascript">
         $(document).ready(function() {
             var hole = 1;
+            var currentHole = 0;
+
             var par = 3;
-            var number = 3;
-            var progress;
-            function start (){
-                $("#hole-number").text(hole); 
-                $("#par").text(par);
-                $("#number").text(number);
+            $('#par').text(par);
+
+            var scores = [{
+                id: 1,
+                score: 3, 
+                saved: false
+            }];
+
+            var $score = $('#number');
+            // var $currentHole = $('#hole-number');
+
+            var save = function() {
+                var score = scores[currentHole];
+                var displayScore = parseInt($score.text());
+                console.log(score.score, displayScore);
+                if(!score.saved || score.score !== displayScore) {
+                    score.score = displayScore;
+                    score.saved = true;
+                    console.log('SAVE IT!!!');
+                }
             };
-            start ();
-            $("#minus").on("click",function(){
-                number--;
-                if (number === 0){
-                    $("#display").text("This value cannot be set lower than zero.");
-                    $("#myModal").modal("show");
-                    number = 3;
+
+            var displayHole = function() {
+                $score.text(scores[currentHole].score);
+            };
+            // var displayHoleNum = function() {
+            //    $currentHole.text(scores[currentHole].id);
+            // }
+
+            var changeHole = function(change) {
+                save();
+                
+                currentHole += change;
+                
+                if(currentHole < 0) {
+                    currentHole = 0;
                 }
-                $("#number").text(number);
+                
+                console.log(currentHole);
+                if(currentHole === scores.length) {
+                    //get new hole
+                    scores.push({
+                    id: scores.length,
+                    score: 3,
+                    saved: false
+                    });
+                }
+
+                displayHole();
+            };
+
+            var incScore = function(change) {
+                $score.text(parseInt($score.text()) + change);
+            };
+
+            // Click minus -- decrease score by 1
+            $("#minus").on("click",function(event){
+                incScore(-1);
             });
+            // Click plus -- increase score by 1
             $("#plus").on("click",function(){
-                number++;
-                $("#number").text(number);
-                
+                incScore(1);
             });
-            $("#next").on("click",function(){
-                var currentHole = $("#hole-number").text()
-                var user = $("#number").text();
-                var userPar = parseInt(user);
-                console.log(userPar);
-                if (userPar === 3){
-                    $("#progress").text("Hole " + currentHole + ": " + "E")
-                }
-                else if (userPar > 3){
-                    $("#progress").text("Hole " + currentHole + ": + " + (userPar - 3));
-                }
-                else if (userPar < 3){
-                    $("#progress").text("Hole " + currentHole + ": - " + (3 - userPar));
-                }
-                
+
+            // Click next -- Send data from current hole, receive for next hole?? Or
+            //receive/send data, then show next hole
+            $("#next").on("click",function(event){
+                $("#previous").show();
+                changeHole(1);
                 hole++;
-                $("#hole-number").text(hole);
-            });
-            $("#previous").on("click",function(){
-                hole--;
-                if (hole === 0){
-                    $("#display").text("This value cannot be set lower than zero.");
-                    $("#myModal").modal("show");
-                    hole = 1;
+                if (hole > 17){
+                    hole = 18;
+                    $("#next").hide();
                 }
                 $("#hole-number").text(hole);
+                // var currentHole = $("#hole-number").text()
+                // var par = 3;
+                // var user = $("#number").text();
+                // var userScore = parseInt(user);
             });
+            // Click previous -- receive/send data, then show previous hole
+            $("#previous").on("click",function(event){
+                $("#next").show();
+                changeHole(-1);
+                hole--;
+                if (hole < 2){
+                    hole = 1;
+                    $("#previous").hide();
+                }
+                $("#hole-number").text(hole);
+                // var currentHole = $("#hole-number").text()
+                // var par = 3;
+                // var user = $("#number").text();
+                // var userScore = parseInt(user);
+            });
+
+            displayHole();
+
+            function start (){
+                $("#hole-number").text(currentHole); 
+                $("#par").text(par);
+                $("#number").text(userScore);
+                $("#previous").hide();
+            };
+
+            function getHoleData() {
+                // Check if hole data exists in db
+                $.get("api/hole/:id", function(data) {
+                    if(data === undefined) {
+                        addHole();
+                    }
+                    // If doesn't match, then update
+                    if (data != data) {
+                        updateHole();
+                    }
+                })  
+            }
+
+            function addHole() {}
+
+            function updateHole(hole) {
+                $.ajax({
+                    method: "PUT",
+                    url: "/api/hole/:id",
+                    data: hole
+                })
+            }
+
+                       
+            
         });
+        
     </script>
   </body>
 </html>

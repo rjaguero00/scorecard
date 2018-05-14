@@ -1,10 +1,14 @@
 module.exports = function (sequelize, DataTypes) {
   var Hole = sequelize.define("Hole", {
     hole_number: {
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: "1"
     },
     par: {
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: "3"
     }
   }, {
       timestamps: false

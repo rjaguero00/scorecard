@@ -8,7 +8,8 @@ module.exports = function (app, passport) {
     // Game
     app.get('/api/game/join', isLoggedIn, apiController.getGame);
     app.post('/api/game', isLoggedIn, apiController.createGame);
-    
+    app.post('/game', isLoggedIn, apiController.createHoleScore);
+
     // Holes
     // app.get('/api/hole/:id', isLoggedIn, apiController.getHole);
     // app.get('/api/hole/:id', isLoggedIn, apiController.getAllHoles);

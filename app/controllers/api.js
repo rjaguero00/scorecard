@@ -78,15 +78,38 @@ module.exports = {
     // }
 
     createHoleScore: function (req, res) {
-        console.log(req.body);
-        var holeScoreId = req.body.holeScoreId
-        var holeScore = req.body.holeScore;
-        model.Hole.create({
-//>>>>>>>>>>>Added this code sample code for testing<<<<<<<<<<<<<<<<<<<//
-            id:1
-        }).then(function(data){
-           // console.log(req.user);
-        });
+        console.log(req.body.userPar);
+        console.log(req.body.holeId);
+        console.log(req.user);
+        var holeScore = req.body.userPar;
+        var holeId = req.body.holeId;
+        var userId = req.user.id;
+        model.HoleScore.create({
+            hole_score: holeScore,
+            HoleId: holeId,
+            userId: userId
+        }).then(function (data) {
+            console.log(data);
+            res.send(data);
+        })
+            .catch(function (err) {
+                console.log("error: ", err);
+            })
+
+
+    }
+}
+
+
+console.log(req.body);
+var holeScoreId = req.body.holeScoreId
+var holeScore = req.body.holeScore;
+model.Hole.create({
+    //>>>>>>>>>>>Added this code sample code for testing<<<<<<<<<<<<<<<<<<<//
+    id: 1
+}).then(function (data) {
+    // console.log(req.user);
+});
     },
 
 
@@ -95,18 +118,18 @@ module.exports = {
 // Then create UserGame and set userId as the current user's ID and GameId as the GameId found by user (with join_id)
 // EVELYN
 getGame: function (req, res) {
-        var playerID = req.user.id;
-        model.Game.findOne({            
-            where: {
-                join_id: req.query.join_id
-            }
-        }).then(function (data) {
-                model.UserGame.create({
-                    userId: playerID,
-                    GameId: data.id
-                })
-                res.redirect("/game");
-            });
-         }
+    var playerID = req.user.id;
+    model.Game.findOne({
+        where: {
+            join_id: req.query.join_id
+        }
+    }).then(function (data) {
+        model.UserGame.create({
+            userId: playerID,
+            GameId: data.id
+        })
+        res.redirect("/game");
+    });
+}
 
 }

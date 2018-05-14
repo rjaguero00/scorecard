@@ -6,6 +6,9 @@ body{
     color: #fff;
     font-family: 'Poppins', sans-serif;
 }
+.container{
+    margin-bottom: 75px;
+}
 .btn-default{
     width: 250px;
     box-shadow: 0 0 10px #000;
@@ -49,7 +52,7 @@ body{
 	position: fixed;
 	bottom: 0px;
 	width: 100%;
-	background-color: black;
+	background-color: #222;
 	color: white;
 	text-align: center
 }

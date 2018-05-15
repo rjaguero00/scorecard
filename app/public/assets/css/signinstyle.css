@@ -1,0 +1,137 @@
+body, html {
+    height: 100%;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #333;
+    background-image:url('../images/Image.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.navbar-inverse {
+    background-color: #222;
+    border-color: #080808;
+}
+.navbar-inverse .navbar-nav>li>a {
+    text-align: center;
+}
+.container {
+    margin: 0 auto;
+    margin-bottom: 75px;
+}
+h2, h3, label {
+    color: white;
+}
+img {
+    width: 500px;
+    height: 500px;
+}
+form {
+    text-align: center;
+}
+input {
+    line-height: normal;
+    width: 75%;
+    text-align: center;
+    margin: 5px;
+}
+.password, email {
+    text-align: center;
+}
+.box{
+    border: 2px rgb(199, 199, 199) solid;
+    border-radius: 7px;
+    margin-bottom: 8px;
+    height: 50px;
+    width: 75%;
+    padding: 5px;
+    background-color: transparent;
+    font-size: 18px;
+    color: #fff;
+}
+#par {
+    background-color: #0984e3;
+    padding: 5px;
+    border-radius: 10px;
+}
+#previous {
+    margin-right: 10px;
+}
+#next {
+    margin-left: 10px;
+}
+#progress {
+    color: white;
+}
+#minus, #plus {
+    width: 60px;
+}
+.btn {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: #0984e3;
+    width: 250px;
+    box-shadow: 0 0 10px #000;
+    border-radius: 50px;
+    color: #fff;
+}
+#close-modal {
+    width: 25%;
+}
+.footer {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    background-color: #222;
+    color: white;
+    text-align: center
+}
+label{
+    color: #00cec9;    
+}
+a {
+    color: white;
+}
+.user-login, .user-sign-up, .game-section{
+    background-color: black;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-shadow: 0 0 0px;
+    opacity: 0.7;
+    border-radius: 15px;
+}
+.user-login:hover{
+    background-color: black; 
+    transition: background-color 0.5s ease-in-out;
+    box-shadow: 0 0 40px white;
+    transition: box-shadow 0.5s ease-in-out;
+    opacity: 0.8;
+}
+.user-sign-up:hover{
+    background-color: black; 
+    transition: background-color 0.5s ease-in-out;
+    box-shadow: 0 0 40px black;
+    transition: box-shadow 0.5s ease-in-out;
+    opacity: 0.8;
+}
+.game-section:hover{
+    background-color: black; 
+    transition: background-color 0.5s ease-in-out;
+    box-shadow: 0 0 40px black;
+    transition: box-shadow 0.5s ease-in-out;
+    opacity: 0.8;
+}
+.btn-default{
+    width: 250px;
+    box-shadow: 0 0 10px #000;
+    border-radius: 50px;
+    color: #fff;
+}
+#previous:hover{
+    cursor: pointer;
+}
+#next:hover{
+    cursor: pointer;
+}

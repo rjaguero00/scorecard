@@ -1,0 +1,117 @@
+body, html {
+	height: 100%;
+}
+body{
+    height: 100vh;
+    width: 100%;
+    background-color: #000;
+    box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+}
+h1, h2, h3{
+    color: white;
+}
+.btn-default{
+    width: 250px;
+    box-shadow: 0 0 10px #000;
+    border-radius: 50px;
+    color: #fff;
+}
+#btn-New, #btn-Start{
+  background-color: #00b894;  
+}
+#btn-Join, #btn-Join-Game{
+    background-color: #0984e3;
+}
+#btn-History{
+    background-color: #ff7675;
+}
+.sm-heading, h1, #hole, #hole-number{
+    color: #00cec9;
+}
+.random{
+    color: #fff;
+}
+.box {
+    border: 2px rgb(199, 199, 199) solid;
+    border-radius: 7px;
+    margin-bottom: 8px;
+    height: 50px;
+    width: 100%;
+    padding: 5px;
+    background-color: transparent;
+    font-size: 24px;
+    text-align: center;
+}
+
+::placeholder { /* Most modern browsers support this now. */
+   color:    #9d9d9d;
+}
+.navbar-inverse .navbar-nav>li>a {
+    text-align: center;
+}
+.footer {
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+	background-color: #222;
+	color: white;
+	text-align: center
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    padding: 1px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+    text-align: center;
+}
+/* game view*/
+#minus, #plus{
+    width: 65px;
+    height: 65px;
+    background-color: #0984e3;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+#previous, #next{
+    margin-right: 10px;
+    margin-left: 10px;
+}
+#number{
+    font-size: 46px;
+    color: #fff;
+}
+.btn {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: #0984e3;
+    width: 250px;
+    box-shadow: 0 0 10px #000;
+    border-radius: 50px;
+    color: #fff;
+    vertical-align: middle; /* new */
+}
+.modal-content {
+    color: #000;
+}
+#final-score {
+    font-size: 3em;
+    text-align: center;
+}
+#total-throws, #par-number {
+    font-size: 1.5em;
+    text-align: center;
+}
+#close-modal {
+    width: 25%;
+}
+h1{
+    font-weight: bold;
+}
+h2{
+    margin-top: 33px;
+}
+#hole-number, #par{
+    margin-left: 8px;
+}

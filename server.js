@@ -6,6 +6,8 @@ var bodyParser = require('body-parser')
 var env = require('dotenv').load()
 var exphbs = require('express-handlebars')
 
+var PORT = process.env.PORT || 5000;
+
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("./app/public"));
 
@@ -56,9 +58,7 @@ models.sequelize.sync({
 
 
 
-app.listen(5000, function (err) {
-  if (!err)
-    console.log("Site is live"); else console.log(err)
-
+app.listen(PORT, function () {
+  console.log("App listening on PORT " + PORT);
 });
 //https://code.tutsplus.com/tutorials/using-passport-with-sequelize-and-mysql--cms-27537

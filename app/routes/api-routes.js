@@ -8,18 +8,13 @@ module.exports = function (app, passport) {
     // Game
     app.get('/api/game/join', isLoggedIn, apiController.getGame);
     app.post('/api/game', isLoggedIn, apiController.createGame);
-    app.post('/game', isLoggedIn, apiController.createHoleScore);
 
-    // Holes
-    // app.get('/api/hole/:id', isLoggedIn, apiController.getHole);
-    // app.get('/api/hole/:id', isLoggedIn, apiController.getAllHoles);
-    // app.post('/api/hole/:id', isLoggedIn, apiController.createHole);
-    // app.put('/api/hole/:id', isLoggedIn, apiController.updateHole);
+    //Holes
+    app.get('/api/hole/:hole?/:GameId?', isLoggedIn, apiController.getHole);
 
-    // Hole Score
-    // app.post('api/scoreboard', isLoggedIn, apiController.createHoleScore);
-    // app.put('api/scoreboard', isLoggedIn, apiController.updateHoleScore);
-
+    //Hole Score
+    app.get('/api/scoreboard/:hole?/:GameId?/:displayScore?', isLoggedIn, apiController.updateScore);
+    
     function isLoggedIn(req, res, next) {
         if (req.isAuthenticated())
             return next();

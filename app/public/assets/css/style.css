@@ -149,3 +149,4 @@ video {
 .stopfade { 
 opacity: .5;
 }
+@media only screen and (max-width: 640px){ #video-section { display: none !important; } }
